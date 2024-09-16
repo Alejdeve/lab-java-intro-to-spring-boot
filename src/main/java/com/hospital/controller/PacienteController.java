@@ -17,5 +17,23 @@ public class PacienteController {
         return pacienteService.getAllPatients();
     }
 
-    // Implementa más endpoints según sea necesario
+    @GetMapping("/{id}")
+    public Paciente getPacienteById(@PathVariable Long id) {
+        return pacienteService.getPacienteById(id);
+    }
+
+    @GetMapping("/admitted/department/{department}")
+    public List<Paciente> getPacientesByAdmittingDoctorDepartment(@PathVariable String department) {
+        return pacienteService.getPacientesByAdmittingDoctorDepartment(department);
+    }
+
+    @GetMapping("/admitted/status/off")
+    public List<Paciente> getPacientesByDoctorStatusOff() {
+        return pacienteService.getPacientesByDoctorStatusOff();
+    }
+
+
+
+
+
 }

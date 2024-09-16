@@ -16,5 +16,19 @@ public class PacienteService {
         return pacienteRepository.findAll();
     }
 
-    // Añade más métodos según sea necesario
+    public Paciente getPacienteById(Long patientId) {
+        return pacienteRepository.findById(patientId).orElse(null);
+    }
+
+    public List<Paciente> getPacientesByAdmittingDoctorDepartment(String department) {
+        return pacienteRepository.findByAdmittedByDepartment(department);
+    }
+
+    public List<Paciente> getPacientesByDoctorStatusOff() {
+        return pacienteRepository.findByAdmittedByStatus("OFF");
+    }
+
+
+
+
 }

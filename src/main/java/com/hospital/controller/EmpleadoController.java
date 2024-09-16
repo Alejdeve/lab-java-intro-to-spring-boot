@@ -17,5 +17,21 @@ public class EmpleadoController {
         return empleadoService.getAllEmpleados();
     }
 
-    // Implementa más endpoints según sea necesario
+    @GetMapping("/{id}")
+    public Empleado getEmpleadoById(@PathVariable Long id) {
+        return empleadoService.getEmpleadoById(id);
+    }
+
+    @GetMapping("/status/{status}")
+    public List<Empleado> getEmpleadosByStatus(@PathVariable String status) {
+        return empleadoService.getEmpleadosByStatus(status);
+    }
+
+    @GetMapping("/department/{department}")
+    public List<Empleado> getEmpleadosByDepartment(@PathVariable String department) {
+        return empleadoService.getEmpleadosByDepartment(department);
+    }
+
+
+
 }
